@@ -116,3 +116,117 @@
         }
       }
     })();
+
+
+// ===== Formativas (tabs + datos + WhatsApp) =====
+(function(){
+  const tabs = document.querySelectorAll('.youth-tab');
+  if (!tabs.length) return;
+
+  // 1) Configura aquí tu número y datos
+  const WHATSAPP_NUMBER = '593999999999'; // <-- CAMBIA a tu número (con país, sin +)
+  const youthData = {
+    U20: {
+      coach: 'DT U20',
+      venue: 'Complejo Norte',
+      training: 'Lun–Vie, 08:00–10:00',
+      next: 'vs. Academia XYZ — Sáb 16:00',
+      last: '2–1 vs. Unión Juvenil',
+    },
+    U18: {
+      coach: 'DT U18',
+      venue: 'Complejo Norte',
+      training: 'Lun–Vie, 08:00–09:30',
+      next: 'vs. Club Juvenil — Dom 10:00',
+      last: '1–1 vs. Atlético Formativo',
+    },
+    U16: {
+      coach: 'DT U16',
+      venue: 'Complejo Sur',
+      training: 'Mar–Jue, 15:00–17:00',
+      next: 'vs. Escuela La Cantera — Sáb 11:30',
+      last: '0–2 vs. Semillero FC',
+    },
+    U14: { coach:'DT U14', venue:'Complejo Sur', training:'Mar–Jue, 15:00–16:30', next:'-', last:'-' },
+    U12: { coach:'DT U12', venue:'Complejo Norte', training:'Lun–Mié, 16:00–17:30', next:'-', last:'-' },
+    U10: { coach:'DT U10', venue:'Complejo Norte', training:'Mar–Jue, 16:00–17:00', next:'-', last:'-' },
+  };
+
+  // 2) Referencias en el DOM
+  const catEl = document.getElementById('youthCat');
+  const coachEl = document.getElementById('coach');
+  const venueEl = document.getElementById('venue');
+  const trainingEl = document.getElementById('training');
+  const nextEl = document.getElementById('next');
+  const lastEl = document.getElementById('last');
+  const tryoutBtn = document.getElementById('tryoutBtn');
+
+  function waLink(cat){
+    const msg = `Hola, me gustaría probarme para ${cat}. ¿Qué requisitos necesito?`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  function render(cat){
+    const d = youthData[cat] || youthData.U20;
+    catEl.textContent = cat;
+    coachEl.textContent = d.coach;
+    venueEl.textContent = d.venue;
+    trainingEl.textContent = d.training;
+    nextEl.textContent = d.next;
+    lastEl.textContent = d.last;
+    tryoutBtn.href = waLink(cat);
+  }
+
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      tabs.forEach(b=>{ b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected','true');
+      render(btn.dataset.cat);
+    });
+  });
+
+  // 3) Inicial
+  render('U20');
+})();
+
+
+
+
+// ===== Sedes: selector que cambia el mapa y el enlace =====
+(function(){
+  const select = document.getElementById('sedeSelect');
+  const iframe = document.getElementById('mapEmbed');
+  const abrirBtn = document.getElementById('abrirMaps');
+  if (!select || !iframe || !abrirBtn) return;
+
+  // Define aquí tus sedes (puedes ajustar los textos/consultas)
+  const sedes = {
+    QuitoCentro: {
+      q: 'Quito Centro Histórico',
+    },
+    QuitoNorte: {
+      q: 'Complejo deportivo Quito norte',
+    },
+    QuitoSur: {
+      q: 'Complejo deportivo Quito sur',
+    }
+  };
+
+  function setMap(key){
+    const sede = sedes[key] || sedes.QuitoCentro;
+    const query = encodeURIComponent(sede.q);
+    // Mapa embebido
+    iframe.src = `https://www.google.com/maps?q=${query}&output=embed`;
+    // Botón "Abrir en Google Maps" (pestaña nueva)
+    abrirBtn.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+  }
+
+  // init
+  setMap(select.value);
+  select.addEventListener('change', ()=> setMap(select.value));
+})();
+
+
+// ===== Footer Year =====
+document.getElementById('year').textContent = new Date().getFullYear();

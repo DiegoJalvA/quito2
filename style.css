@@ -121,3 +121,563 @@
       outline-offset:2px;
       border-radius:10px;
     }
+
+
+/*CLUB PARTE */
+
+.section-club{
+  padding: 4rem 1.5rem;
+  background: #111;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.club-container{
+  max-width: 900px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.club-escudo{
+  width: min(160px, 45vw);
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+  user-select: none;
+}
+
+.club-title{
+  font-size: 2rem;
+  margin: .25rem 0 1.25rem;
+  font-weight: 700;
+  color: #f5f5f5;
+}
+
+.section-club p{
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+/* Responsivo */
+@media (max-width: 768px){
+  .club-title{ font-size: 1.6rem; }
+  .section-club p{ font-size: .97rem; }
+}
+
+
+/*equipo */
+
+/* ===== Primer Equipo ===== */
+.section-team{
+  padding: 3rem 1rem 4rem;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team{
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.team-title{
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.team-photo{
+  margin: 0;
+}
+
+.team-photo img{
+  display: block;
+  width: 100%;
+  max-width: 980px;           /* limita el ancho en desktop */
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  object-fit: cover;
+}
+
+.team-caption{
+  margin-top: 0.85rem;
+  color: var(--muted);
+}
+
+.fila{
+  display: flex;
+  gap: .5rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;           /* se acomoda en pantallas pequeñas */
+  margin-top: .35rem;
+}
+
+.fila .etq{
+  color: var(--text);
+  font-weight: 600;
+}
+
+.nombres{
+  display: flex;
+  gap: .4rem .5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nombres span{
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border-weak);
+  border-radius: 999px;
+  padding: .35rem .6rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Responsivo */
+@media (max-width: 768px){
+  .team-title{ font-size: 1.5rem; }
+  .nombres span{ font-size: .92rem; }
+}
+
+@media (max-width: 480px){
+  .nombres span{ font-size: .88rem; padding: .3rem .55rem; }
+}
+
+
+/*FORMATIVAS*/
+/* ===== Formativas ===== */
+.section-youth{
+  padding: 3.5rem 1rem 4rem;
+  background:#0f0f0f;
+}
+.youth-wrap{ max-width: 1100px; margin-inline:auto; }
+
+.youth-title{
+  text-align:center;
+  font-size:2rem;
+  font-weight:800;
+  margin:0 0 .35rem;
+}
+.youth-sub{
+  text-align:center;
+  color:var(--muted);
+  margin:0 auto 1rem;
+  max-width: 780px;
+}
+
+/* Chips */
+.youth-tabs{
+  display:flex; gap:.5rem; flex-wrap:nowrap;
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  padding:.25rem; margin: .5rem auto 1.25rem; 
+  justify-content:center;
+}
+.youth-tab{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.55rem .8rem;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border-weak);
+  color:var(--text);
+  cursor:pointer;
+  white-space:nowrap;
+  transition:transform .15s ease, background .2s ease;
+}
+.youth-tab img{ width:18px; height:18px; object-fit:contain; }
+.youth-tab:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px); }
+.youth-tab.is-active{
+  background:rgba(255,255,255,.16);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+/* Card */
+.youth-card{
+  background:#121212;
+  border:1px solid var(--border-weak);
+  border-radius:18px;
+  padding:1.25rem;
+  box-shadow: 0 18px 36px rgba(0,0,0,.35);
+}
+.youth-card-hd{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; margin-bottom:1rem;
+}
+.youth-cat{ margin:0; font-size:1.3rem; font-weight:800; }
+.btn-primary{
+  display:inline-block;
+  padding:.75rem 1rem;
+  border-radius:999px;
+  text-decoration:none; color:white;
+  background: linear-gradient(180deg, #2f7cff, #1a5be9);
+  box-shadow: 0 8px 22px rgba(47,124,255,.35);
+}
+.btn-primary:hover{ filter:brightness(1.05); }
+
+/* Grid datos */
+.youth-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: .9rem;
+}
+.ybox{
+  background:#0f0f0f;
+  border:1px solid var(--border-weak);
+  border-radius:14px;
+  padding: .9rem .95rem;
+}
+.ybox--full{ grid-column: 1 / -1; }
+.ylabel{ display:block; color:#9fb0ff; font-size:.85rem; margin-bottom:.2rem; }
+.yvalue{ font-weight:600; color:var(--text); }
+
+/* Responsivo */
+@media (max-width:900px){
+  .youth-title{ font-size:1.8rem; }
+}
+@media (max-width:640px){
+  .youth-grid{ grid-template-columns: 1fr; }
+  .youth-card-hd{ flex-direction:column; align-items:flex-start; }
+  .btn-primary{ width:100%; text-align:center; }
+}
+
+
+
+/*femenino*/
+/* Descripción bajo la foto (hombres y femenino) */
+.team-desc{
+  color: var(--muted);
+  max-width: 980px;
+  margin: .5rem auto 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+
+
+/*SEDE*/
+/* ===== Sedes / Mapa ===== */
+.section-sedes{
+  padding: 3.5rem 1rem 4rem;
+  background:#0f0f0f;
+  display:flex; align-items:center; justify-content:center;
+}
+.sedes-wrap{ width:100%; max-width:1100px; margin-inline:auto; }
+.sedes-title{
+  text-align:center; margin:0 0 .35rem; font-weight:800; font-size:2rem;
+}
+.sedes-sub{
+  text-align:center; color:var(--muted); margin:0 0 1rem;
+}
+
+/* Toolbar */
+.sedes-toolbar{
+  display:flex; gap:.6rem; align-items:center; justify-content:center;
+  flex-wrap:wrap; margin-bottom:1rem;
+}
+.sede-select{
+  background:#121212; color:var(--text);
+  border:1px solid var(--border-weak); border-radius:10px;
+  padding:.6rem .75rem; min-width:220px;
+}
+.btn-outline{
+  display:inline-block; text-decoration:none; color:var(--text);
+  border:1px solid var(--border-weak); border-radius:999px;
+  padding:.6rem .9rem; background:rgba(255,255,255,.06);
+}
+.btn-outline:hover{ background:rgba(255,255,255,.12); }
+
+/* Contenedor 16:9 responsivo */
+.map-wrap{
+  position:relative; width:100%; max-width:1100px; margin:0 auto 1rem;
+  aspect-ratio:16 / 9;
+  border-radius:16px; overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+  border:1px solid var(--border-weak);
+}
+.map-embed{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+  filter: saturate(105%);
+}
+
+/* Tarjetas de info (opcionales) */
+.sede-info{
+  display:grid; gap:.7rem; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+}
+.sede-card{
+  background:#121212; border:1px solid var(--border-weak);
+  border-radius:12px; padding:.9rem .95rem;
+  display:flex; flex-direction:column; gap:.15rem;
+}
+.sede-card strong{ font-weight:700; }
+.sede-card span{ color:var(--muted); }
+
+/* Accesibilidad: label oculto visualmente */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+@media (max-width:900px){
+  .sedes-title{ font-size:1.8rem; }
+}
+.sede-layout{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:1.5rem;
+  align-items:start;
+}
+
+.map-wrap.small{
+  aspect-ratio: 4 / 3;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border-weak);
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+.map-embed{ width:100%; height:100%; border:0; }
+
+.sede-info{
+  display:flex;
+  flex-direction:column;
+  gap:.8rem;
+}
+.sede-card{
+  background:#121212;
+  border:1px solid var(--border-weak);
+  border-radius:12px;
+  padding:.9rem .95rem;
+}
+.sede-card strong{ font-weight:700; }
+.sede-card span{ color:var(--muted); }
+
+/* Responsive */
+@media (max-width:768px){
+  .sede-layout{
+    grid-template-columns: 1fr;
+  }
+  .map-wrap.small{
+    aspect-ratio:16/9;
+  }
+}
+
+
+/*SEDE*/
+/* ===== Tienda ===== */
+.section-store{
+  padding:3.5rem 1rem 4rem;
+  background:#0f0f0f;
+  display:flex; align-items:center; justify-content:center;
+}
+.store-wrap{ max-width:1100px; width:100%; margin-inline:auto; }
+.store-title{
+  text-align:center; font-size:2rem; font-weight:800; margin:0 0 .35rem;
+}
+.store-sub{ text-align:center; color:var(--muted); margin:0 0 2rem; }
+
+.store-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:1.5rem;
+}
+
+.product-card{
+  background:#121212;
+  border:1px solid var(--border-weak);
+  border-radius:14px;
+  padding:1rem;
+  text-align:center;
+  display:flex; flex-direction:column; gap:.6rem;
+  box-shadow:0 10px 22px rgba(0,0,0,.35);
+}
+.product-card img{
+  width:100%; max-height:260px; object-fit:cover;
+  border-radius:12px;
+}
+.product-name{ font-size:1.1rem; font-weight:600; margin:.5rem 0 0; }
+.product-price{ font-size:1.05rem; color:#9fd; margin:0; }
+
+.btn-primary{
+  display:inline-block;
+  margin-top:auto;
+  padding:.75rem 1rem;
+  border-radius:999px;
+  text-decoration:none;
+  color:white;
+  background: linear-gradient(180deg, #ae0f0a, #ae0f0a);
+  box-shadow:0 8px 22px rgba(174, 15, 10);
+}
+.btn-primary:hover{ filter:brightness(1.05); }
+
+/* Responsive ajustes */
+@media (max-width:640px){
+  .product-card img{ max-height:200px; }
+  .store-title{ font-size:1.8rem; }
+}
+
+
+
+/* ===== Patrocinadores ===== */
+.section-sponsors{
+  padding: 3rem 1rem 3.5rem;
+  background: #0f0f0f;
+}
+.sponsors-wrap{
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.sponsors-title{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 2rem;
+}
+
+.sponsors-logos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.sponsors-logos img{
+  max-height: 70px;       /* controla tamaño */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+  transition: transform .2s ease;
+}
+.sponsors-logos img:hover{
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width:600px){
+  .sponsors-logos{
+    gap: 1rem;
+  }
+  .sponsors-logos img{
+    max-height: 55px;
+  }
+}
+
+
+/* ===== Contactos / Redes ===== */
+.section-contact{
+  padding: 3rem 1rem 3.5rem;
+  background:#0f0f0f;
+}
+.contact-wrap{
+  max-width:900px;
+  margin-inline:auto;
+  text-align:center;
+}
+.contact-title{
+  font-size:2rem;
+  font-weight:800;
+  margin:0 0 .5rem;
+}
+.contact-sub{
+  color:var(--muted);
+  margin:0 0 1.5rem;
+}
+
+.social-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:1.2rem;
+}
+.social-links a img{
+  width:45px;
+  height:45px;
+  object-fit:contain;
+  transition:transform .2s ease, filter .2s ease;
+}
+.social-links a img:hover{
+  transform:scale(1.1);
+  filter:brightness(1.2);
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .social-links a img{ width:38px; height:38px; }
+}
+
+
+
+/* ===== Footer ===== */
+.site-footer{
+  background:#0a0a0a;
+  border-top:1px solid var(--border-weak);
+  padding:1.5rem 1rem;
+  font-size:.9rem;
+  color:var(--muted);
+}
+.footer-wrap{
+  max-width:1100px;
+  margin-inline:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  text-align:center;
+}
+.footer-logo img,
+.dev-logo img{
+  height:48px;
+  width:auto;
+  object-fit:contain;
+}
+.footer-text{
+  flex:1;
+}
+.footer-text p{
+  margin:.2rem 0;
+  line-height:1.4;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .footer-wrap{
+    flex-direction:column;
+  }
+  .footer-logo img,
+  .dev-logo img{
+    height:40px;
+  }
+}
+
+
+
+/* Títulos con Montserrat */
+h1, h2, h3,
+.club-title,
+.team-title,
+.youth-title,
+.fem-title,
+.sponsors-title,
+.store-title,
+.contact-title,
+.sedes-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;   /* bien fuerte para títulos */
+  letter-spacing: 0.5px;
+}
+
+/* Texto normal (opcional) */
+body, p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
